@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineLearningDemo.ConsoleApp", "MachineLearningDemo.ConsoleApp\MachineLearningDemo.ConsoleApp.csproj", "{53A49B71-297E-4D4F-821C-ADF249784C27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineLearningDemo.Trainer", "MachineLearningDemo.Trainer\MachineLearningDemo.Trainer.csproj", "{DD2AC662-EEA1-441D-A64B-0760F96C5851}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineLearningDemo.Model", "MachineLearningDemo.Model\MachineLearningDemo.Model.csproj", "{69B8FAF2-99CF-466B-9A62-875F034296A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53A49B71-297E-4D4F-821C-ADF249784C27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53A49B71-297E-4D4F-821C-ADF249784C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53A49B71-297E-4D4F-821C-ADF249784C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53A49B71-297E-4D4F-821C-ADF249784C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD2AC662-EEA1-441D-A64B-0760F96C5851}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD2AC662-EEA1-441D-A64B-0760F96C5851}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD2AC662-EEA1-441D-A64B-0760F96C5851}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD2AC662-EEA1-441D-A64B-0760F96C5851}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69B8FAF2-99CF-466B-9A62-875F034296A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69B8FAF2-99CF-466B-9A62-875F034296A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69B8FAF2-99CF-466B-9A62-875F034296A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69B8FAF2-99CF-466B-9A62-875F034296A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
