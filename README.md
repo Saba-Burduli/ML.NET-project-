@@ -1,12 +1,12 @@
-# Car Price Prediction - ML.NET Console App
+# Car Price Prediction - ML.NET
 
-This project is a simple ML.NET console application that predicts the price of used cars based on:
+This project is a simple ML.NET application that predicts the price of used cars based on:
 
 - **Model**
 - **Year**
 - **Mileage**
 
-It uses a regression model trained on sample data for:
+It uses a regression model trained on synthetic data for:
 - **Dodge Challenger**
 - **Ford Mustang**
 - **BMW 3 Series**
@@ -16,11 +16,12 @@ It uses a regression model trained on sample data for:
 
 ## ML Pipeline
 
-1. Load CSV data
-2. One-hot encode the car model
-3. Combine features: `Model + Year + Mileage`
-4. Train using **SDCA regression**
-5. Evaluate and save the model
+1. Load CSV training data (up to 1M rows)
+2. One-hot encode the `Model` field
+3. Normalize numeric fields: `Year`, `Mileage`
+4. Combine features: `ModelEncoded + Year + Mileage`
+5. Train using the **FastTree regression** algorithm
+6. Evaluate the model and save it to disk
 
 ---
 
@@ -34,11 +35,11 @@ BMW 3 Series,2024,10000,37000.00
 
 ---
 
-## Evaluation Example
+## Evaluation Example (on synthetic data)
 
 ```
-R-squared: 0.92
-RMSE: 2115.67
+R-squared: 1.00
+RMSE: 37.04
 ```
 
 ---
@@ -46,10 +47,12 @@ RMSE: 2115.67
 ## Requirements
 
 - [.NET 8.0 SDK](https://dotnet.microsoft.com/)
-- ML.NET NuGet packages
+- NuGet Packages:
+  - `Microsoft.ML`
+  - `Microsoft.ML.FastTree`
 
 ---
 
 ## License
 
-MIT.
+MIT – use it, do whatever you want.
