@@ -35,10 +35,14 @@ public static class ModelBuilder
 
             Console.WriteLine("Building training pipeline...");
             var pipeline = Context.Transforms.Categorical.OneHotEncoding("ModelEncoded", nameof(ModelInput.Model))
-                .Append(Context.Transforms.Concatenate("Features", "ModelEncoded", nameof(ModelInput.Year),
-                    nameof(ModelInput.Mileage)))
-                .Append(Context.Regression.Trainers.Sdca(labelColumnName: nameof(ModelInput.Price),
-                    maximumNumberOfIterations: 100));
+                .Append(Context.Transforms.NormalizeMinMax(nameof(ModelInput.Year)))
+                .Append(Context.Transforms.NormalizeMinMax(nameof(ModelInput.Mileage)))
+                .Append(Context.Transforms.Concatenate("Features", "ModelEncoded", nameof(ModelInput.Year), nameof(ModelInput.Mileage)))
+                .AppendCacheCheckpoint(Context)
+                .Append(Context.Regression.Trainers.FastTree(labelColumnName: nameof(ModelInput.Price),
+                    numberOfLeaves: 20,
+                    numberOfTrees: 100,
+                    minimumExampleCountPerLeaf: 10));
 
             Console.WriteLine("Training model...");
             var model = pipeline.Fit(split.TrainSet);
@@ -47,7 +51,15 @@ public static class ModelBuilder
             var predictions = model.Transform(split.TestSet);
             var metrics = Context.Regression.Evaluate(predictions, labelColumnName: nameof(ModelInput.Price));
 
+            // Range: 0 to 1 (sometimes can be negative if the model sucks)
+            // Shows how well the model explains the variance in the data.
+            // 1 means perfect prediction.
+            // 0 means that the model predicts nothing.
+            // 0.92 means the model explains 92% of the variation in prices
             Console.WriteLine($"R-squared: {metrics.RSquared:0.00}");
+            // Range: 0 to infinity (lower is better)
+            // It tells you the average prediction error in the same unit as your target variable.
+            // RMSE = 2200 means that on average, the predicted price is $2200 off from the actual price
             Console.WriteLine($"RMSE: {metrics.RootMeanSquaredError:#.##}");
 
             Console.WriteLine("Saving model...");
