@@ -11,9 +11,10 @@ var supportedCarModels = new[]
     "Mercedes C-Class"
 };
 
-var supportedYears = Enumerable.Range(2020, 6).ToList(); // 2020 to 2025
+// 2020 to 2025
+var supportedYears = Enumerable.Range(2020, 6).ToList();
 
-AnsiConsole.MarkupLine("[bold green]Car Price Predictor[/]\n");
+AnsiConsole.MarkupLine($"[bold green]Car Price Predictor[/]{Environment.NewLine}");
 
 var model = AnsiConsole.Prompt(
     new SelectionPrompt<string>()
