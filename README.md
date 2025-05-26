@@ -33,6 +33,8 @@ Ford Mustang,2020,60000,14000.00
 BMW 3 Series,2024,10000,37000.00
 ```
 
+This dataset is generated using ChatGPT and doesn't represent real world data.
+
 ---
 
 ## Evaluation Example (on synthetic data)
