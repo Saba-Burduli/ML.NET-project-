@@ -1,16 +1,46 @@
-﻿using MachineLearningDemo.ConsoleApp;
+﻿using Spectre.Console;
+using MachineLearningDemo.ConsoleApp;
 
 var predictor = new PredictionService();
 
-Console.Write("Enter car model (Dodge Challenger, Ford Mustang, BMW 3 Series, Mercedes C-Class): ");
-var model = Console.ReadLine()!;
+var supportedCarModels = new[]
+{
+    "Dodge Challenger",
+    "Ford Mustang",
+    "BMW 3 Series",
+    "Mercedes C-Class"
+};
 
-Console.Write("Enter year (2020-2024): ");
-var year = int.Parse(Console.ReadLine()!);
+var supportedYears = Enumerable.Range(2020, 6).ToList(); // 2020 to 2025
 
-Console.Write("Enter mileage (e.g., 50000): ");
-var mileage = int.Parse(Console.ReadLine()!);
+AnsiConsole.MarkupLine("[bold green]Car Price Predictor[/]\n");
+
+var model = AnsiConsole.Prompt(
+    new SelectionPrompt<string>()
+        .Title("Select a [green]car model[/]:")
+        .PageSize(10)
+        .AddChoices(supportedCarModels)
+);
+
+var year = AnsiConsole.Prompt(
+    new SelectionPrompt<int>()
+        .Title("Select the [blue]year[/]:")
+        .PageSize(6)
+        .AddChoices(supportedYears)
+);
+
+var mileage = AnsiConsole.Prompt(
+    new TextPrompt<int>("Enter the [yellow]mileage[/] (e.g., 50000):")
+        .PromptStyle("yellow")
+        .Validate(m => m >= 0
+            ? ValidationResult.Success()
+            : ValidationResult.Error("[red]Mileage must be non-negative integer[/]"))
+);
 
 var price = predictor.Predict(model, year, mileage);
 
-Console.WriteLine($"Predicted car price: ${price:0.00}");
+AnsiConsole.WriteLine();
+
+AnsiConsole.MarkupLine(price >= 0
+    ? $"💰 [bold green]Predicted Price:[/] [bold yellow]{price:N0} $[/]"
+    : "[red]Prediction failed.[/]");
