@@ -17,24 +17,15 @@ public class PredictionService
 
     public float Predict(string model, int year, int mileage)
     {
-        try
+        var data = new ModelInput
         {
-            var data = new ModelInput
-            {
-                Model = model,
-                Year = year,
-                Mileage = mileage
-            };
+            Model = model,
+            Year = year,
+            Mileage = mileage
+        };
 
-            var result = _predictionEngine.Predict(data);
+        var result = _predictionEngine.Predict(data);
 
-            return result.Score;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($" Prediction error: {ex.Message}");
-        }
-
-        return -1;
+        return result.Score;
     }
 }

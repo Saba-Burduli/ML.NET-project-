@@ -42,6 +42,6 @@ var price = predictor.Predict(model, year, mileage);
 
 AnsiConsole.WriteLine();
 
-AnsiConsole.MarkupLine(price >= 0
+AnsiConsole.MarkupLine(price > 0
     ? $"💰 [bold green]Predicted Price:[/] [bold yellow]{price:N0} $[/]"
     : "[red]Prediction failed.[/]");
