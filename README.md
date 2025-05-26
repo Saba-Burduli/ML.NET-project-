@@ -50,6 +50,7 @@ RMSE: 37.04
 - NuGet Packages:
   - `Microsoft.ML`
   - `Microsoft.ML.FastTree`
+  - `Spectre.Console`
 
 ---
 
