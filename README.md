@@ -1,36 +1,31 @@
-Car Price Prediction - ML.NET
-This project is a simple ML.NET application that predicts the price of used cars based on:
+# Car Price Prediction Using Linear Regression – ML.NET
 
-Model
-Year
-Mileage
-It uses a regression model trained on synthetic data for:
+This project predicts the price of used cars based on key features such as **Model**, **Year**, and **Mileage** using a regression model built with **ML.NET**.
 
-Dodge Challenger
-Ford Mustang
-BMW 3 Series
-Mercedes C-Class
-ML Pipeline
-Load CSV training data (up to 1M rows)
-One-hot encode the Model field
-Normalize numeric fields: Year, Mileage
-Combine features: ModelEncoded + Year + Mileage
-Train using the FastTree regression algorithm
-Evaluate the model and save it to disk
-Dataset Sample
+## 🚗 Project Description
+
+The model is trained on a synthetic dataset and supports the following car models:
+
+- Dodge Challenger  
+- Ford Mustang  
+- BMW 3 Series  
+- Mercedes C-Class  
+
+It leverages the **FastTree Regression** algorithm for training and makes use of feature engineering steps such as normalization and one-hot encoding.
+
+## 🧠 Machine Learning Pipeline
+
+1. **Load CSV** training data (up to 1 million rows)
+2. **One-hot encode** the `Model` column
+3. **Normalize** the `Year` and `Mileage` columns
+4. **Concatenate** all features into a single input vector
+5. **Train** the model using the `FastTree` regression algorithm
+6. **Evaluate** the model’s accuracy
+7. **Save** the trained model to disk for reuse
+
+## 📂 Sample Dataset
+
+```csv
 Model,Year,Mileage,Price
 Ford Mustang,2020,60000,14000.00
 BMW 3 Series,2024,10000,37000.00
-This dataset is generated using ChatGPT and doesn't represent real world data.
-
-Evaluation Example (on synthetic data)
-R-squared: 1.00
-RMSE: 37.04
-Requirements
-.NET 8.0 SDK
-NuGet Packages:
-Microsoft.ML
-Microsoft.ML.FastTree
-Spectre.Console
-License
-MIT – use it, do whatever you want.
