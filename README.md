@@ -2,7 +2,7 @@
 
 This project predicts the price of used cars based on key features such as **Model**, **Year**, and **Mileage** using a regression model built with **ML.NET**.
 
-## 🚗 Project Description
+##  Project Description
 
 The model is trained on a synthetic dataset and supports the following car models:
 
@@ -13,7 +13,7 @@ The model is trained on a synthetic dataset and supports the following car model
 
 It leverages the **FastTree Regression** algorithm for training and makes use of feature engineering steps such as normalization and one-hot encoding.
 
-## 🧠 Machine Learning Pipeline
+##  Machine Learning Pipeline
 
 1. **Load CSV** training data (up to 1 million rows)
 2. **One-hot encode** the `Model` column
@@ -23,7 +23,7 @@ It leverages the **FastTree Regression** algorithm for training and makes use of
 6. **Evaluate** the model’s accuracy
 7. **Save** the trained model to disk for reuse
 
-## 📂 Sample Dataset
+##  Sample Dataset
 
 ```csv
 Model,Year,Mileage,Price
