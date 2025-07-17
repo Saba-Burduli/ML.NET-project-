@@ -29,3 +29,4 @@ It leverages the **FastTree Regression** algorithm for training and makes use of
 Model,Year,Mileage,Price
 Ford Mustang,2020,60000,14000.00
 BMW 3 Series,2024,10000,37000.00
+
