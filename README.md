@@ -1,5 +1,6 @@
 
 
+
 # Car Price Prediction Using Linear Regression – ML.NET
 
 This project predicts the price of used cars based on key features such as **Model**, **Year**, and **Mileage** using a regression model built with **ML.NET**.
